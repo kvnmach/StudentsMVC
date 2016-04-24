@@ -1,0 +1,23 @@
+﻿
+@model Students.Models.Student
+
+@{
+    ViewBag.Title = "studenttemplate";
+}
+
+<div style="border: 3px solid blue">
+    <h2> Student: @Model.FirstName @Model.LastName</h2>
+
+    @if (Model.Age >= 30)
+    {
+        <h2>Age: <span style ="color: red">@Model.Age</span></h2>
+    }
+    else
+    {
+        <h2>Age: @Model.Age</h2>
+    }
+
+    <h2>Gender: @Model.Gender</h2>
+
+</div>
+

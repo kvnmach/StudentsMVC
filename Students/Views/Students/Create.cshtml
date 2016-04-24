@@ -1,0 +1,36 @@
+﻿@model Students.Models.Student
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create Student</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        <label for="Firstname">FirstName</label>
+        <input name="FirstName" type="text" class="form-control" placeholder="Student First Name"/>
+    </div>
+
+    <div class="form-group">
+        <label for="LastName">LastName</label>
+        <input name="LastName" type="text" class="form-control" placeholder="Student Last Name"/>
+
+    </div>
+    <div class="form-group">
+        <label for="Gender">Gender</label>
+        @Html.DropDownList("Gender", new List<SelectListItem>
+        {
+            new SelectListItem {Text = "Male", Value = "Male"},
+            new SelectListItem {Text = "Female", Value = "Female"},
+        }, "Please Select Gender")
+        @Html.ValidationMessageFor(m => m.Gender)
+    </div>
+    <div class="form-group">
+        <label for="Age">Age</label>
+        <input name="Age" type="text" class="form-control" placeholder="Student Age"/>
+    </div>
+    <p>
+        <button type="Submit" class="btn btn-block btn-lg" value="Create">Submit</button>
+    </p>
+}
